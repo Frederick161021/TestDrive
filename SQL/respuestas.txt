@@ -1,0 +1,601 @@
+-- Preguntas correctas
+INSERT INTO respuestas (preguntaId, opcion, tipo) VALUES 
+-- Pregunta 1
+(1, "30 km/h.", 1),
+(1, "40 km/h.", 0),
+(1, "50 km/h.", 0),
+(1, "60 km/h.", 0),
+
+-- Pregunta 2
+(2, "Prohibición de virar a la izquierda.", 1),
+(2, "Prohibición de virar a la derecha.", 0),
+(2, "Prohibición de adelantar.", 0),
+(2, "Prohibición de estacionar.", 0),
+
+-- Pregunta 3
+(3, "5 metros.", 1),
+(3, "10 metros.", 0),
+(3, "15 metros.", 0),
+(3, "20 metros.", 0),
+
+-- Pregunta 4
+(4, "Multa y posible arresto.", 1),
+(4, "Advertencia verbal.", 0),
+(4, "Advertencia por escrito.", 0),
+(4, "Solo multa.", 0),
+
+-- Pregunta 5
+(5, "110 km/h.", 1),
+(5, "120 km/h.", 0),
+(5, "100 km/h.", 0),
+(5, "90 km/h.", 0),
+
+-- Pregunta 6
+(6, "Prohibición de adelantar.", 1),
+(6, "Prohibición de virar a la derecha.", 0),
+(6, "Prohibición de estacionar.", 0),
+(6, "Prohibición de virar a la izquierda.", 0),
+
+-- Pregunta 7
+(7, "3 metros.", 1),
+(7, "5 metros.", 0),
+(7, "2 metros.", 0),
+(7, "4 metros.", 0),
+
+-- Pregunta 8
+(8, "80 km/h.", 1),
+(8, "70 km/h.", 0),
+(8, "90 km/h.", 0),
+(8, "100 km/h.", 0),
+
+-- Pregunta 9
+(9, "Precaución, semáforo intermitente.", 1),
+(9, "Paso prohibido.", 0),
+(9, "Circulación libre.", 0),
+(9, "Precaución, trabajos en la vía.", 0),
+
+-- Pregunta 10
+(10, "Doble de la multa regular.", 1),
+(10, "Multa regular.", 0),
+(10, "Advertencia verbal.", 0),
+(10, "Advertencia por escrito.", 0),
+
+-- Pregunta 11
+(11, "5 metros.", 1),
+(11, "10 metros.", 0),
+(11, "15 metros.", 0),
+(11, "20 metros.", 0),
+
+-- Pregunta 12
+(12, "Señal de alto.", 1),
+(12, "Precaución, semáforo intermitente.", 0),
+(12, "Precaución, trabajos en la vía.", 0),
+(12, "Prohibición de virar a la izquierda.", 0),
+
+-- Pregunta 13
+(13, "Multa.", 1),
+(13, "Advertencia verbal.", 0),
+(13, "Advertencia por escrito.", 0),
+(13, "Solo multa.", 0),
+
+-- Pregunta 14
+(14, "5 metros.", 1),
+(14, "10 metros.", 0),
+(14, "15 metros.", 0),
+(14, "20 metros.", 0),
+
+-- Pregunta 15
+(15, "Zona de ciclistas.", 1),
+(15, "Zona escolar.", 0),
+(15, "Zona peatonal.", 0),
+(15, "Zona residencial.", 0),
+
+-- Pregunta 16
+(16, "Multa.", 1),
+(16, "Advertencia verbal.", 0),
+(16, "Advertencia por escrito.", 0),
+(16, "Solo multa.", 0),
+
+-- Pregunta 17
+(17, "5 metros.", 1),
+(17, "10 metros.", 0),
+(17, "15 metros.", 0),
+(17, "20 metros.", 0),
+
+-- Pregunta 18
+(18, "Zona escolar.", 1),
+(18, "Zona de ciclistas.", 0),
+(18, "Zona peatonal.", 0),
+(18, "Zona residencial.", 0),
+
+-- Pregunta 19
+(19, "15 metros.", 1),
+(19, "10 metros.", 0),
+(19, "20 metros.", 0),
+(19, "25 metros.", 0),
+
+-- Pregunta 20
+(20, "Multa y posible arresto.", 1),
+(20, "Solo multa.", 0),
+(20, "Advertencia verbal.", 0),
+(20, "Advertencia por escrito.", 0),
+
+-- Pregunta 21
+(21, "5 metros.", 1),
+(21, "10 metros.", 0),
+(21, "15 metros.", 0),
+(21, "20 metros.", 0),
+
+-- Pregunta 22
+(22, "Zona peatonal.", 1),
+(22, "Zona de ciclistas.", 0),
+(22, "Zona escolar.", 0),
+(22, "Zona residencial.", 0),
+
+-- Pregunta 23
+(23, "Multa.", 1),
+(23, "Advertencia verbal.", 0),
+(23, "Advertencia por escrito.", 0),
+(23, "Solo multa.", 0),
+
+-- Pregunta 24
+(24, "5 metros.", 1),
+(24, "10 metros.", 0),
+(24, "15 metros.", 0),
+(24, "20 metros.", 0),
+
+-- Pregunta 25
+(25, "Zona escolar.", 1),
+(25, "Zona de ciclistas.", 0),
+(25, "Zona peatonal.", 0),
+(25, "Zona residencial.", 0),
+
+-- Pregunta 26
+(26, "Multa.", 1),
+(26, "Advertencia verbal.", 0),
+(26, "Advertencia por escrito.", 0),
+(26, "Solo multa.", 0),
+
+-- Pregunta 27
+(27, "5 metros.", 1),
+(27, "10 metros.", 0),
+(27, "15 metros.", 0),
+(27, "20 metros.", 0),
+
+-- Pregunta 28
+(28, "Zona escolar.", 1),
+(28, "Zona de ciclistas.", 0),
+(28, "Zona peatonal.", 0),
+(28, "Zona residencial.", 0),
+
+-- Pregunta 29
+(29, "15 metros.", 1),
+(29, "10 metros.", 0),
+(29, "20 metros.", 0),
+(29, "25 metros.", 0),
+
+-- Pregunta 30
+(30, "Multa y posible arresto.", 1),
+(30, "Solo multa.", 0),
+(30, "Advertencia verbal.", 0),
+(30, "Advertencia por escrito.", 0),
+
+-- Pregunta 31
+(31, "5 metros.", 1),
+(31, "10 metros.", 0),
+(31, "15 metros.", 0),
+(31, "20 metros.", 0),
+
+-- Pregunta 32
+(32, "Zona peatonal.", 1),
+(32, "Zona de ciclistas.", 0),
+(32, "Zona escolar.", 0),
+(32, "Zona residencial.", 0),
+
+-- Pregunta 33
+(33, "Multa.", 1),
+(33, "Advertencia verbal.", 0),
+(33, "Advertencia por escrito.", 0),
+(33, "Solo multa.", 0),
+
+-- Pregunta 34
+(34, "5 metros.", 1),
+(34, "10 metros.", 0),
+(34, "15 metros.", 0),
+(34, "20 metros.", 0),
+
+-- Pregunta 35
+(35, "Zona escolar.", 1),
+(35, "Zona de ciclistas.", 0),
+(35, "Zona peatonal.", 0),
+(35, "Zona residencial.", 0),
+
+-- Pregunta 36
+(36, "Multa.", 1),
+(36, "Advertencia verbal.", 0),
+(36, "Advertencia por escrito.", 0),
+(36, "Solo multa.", 0),
+
+-- Pregunta 37
+(37, "5 metros.", 1),
+(37, "10 metros.", 0),
+(37, "15 metros.", 0),
+(37, "20 metros.", 0),
+
+-- Pregunta 38
+(38, "Zona escolar.", 1),
+(38, "Zona de ciclistas.", 0),
+(38, "Zona peatonal.", 0),
+(38, "Zona residencial.", 0),
+
+-- Pregunta 39
+(39, "15 metros.", 1),
+(39, "10 metros.", 0),
+(39, "20 metros.", 0),
+(39, "25 metros.", 0),
+
+-- Pregunta 40
+(40, "Multa y posible arresto.", 1),
+(40, "Solo multa.", 0),
+(40, "Advertencia verbal.", 0),
+(40, "Advertencia por escrito.", 0),
+
+-- Pregunta 41
+(41, "5 metros.", 1),
+(41, "10 metros.", 0),
+(41, "15 metros.", 0),
+(41, "20 metros.", 0),
+
+-- Pregunta 42
+(42, "Zona peatonal.", 1),
+(42, "Zona de ciclistas.", 0),
+(42, "Zona escolar.", 0),
+(42, "Zona residencial.", 0),
+
+-- Pregunta 43
+(43, "Multa.", 1),
+(43, "Advertencia verbal.", 0),
+(43, "Advertencia por escrito.", 0),
+(43, "Solo multa.", 0),
+
+-- Pregunta 44
+(44, "5 metros.", 1),
+(44, "10 metros.", 0),
+(44, "15 metros.", 0),
+(44, "20 metros.", 0),
+
+-- Pregunta 45
+(45, "Zona escolar.", 1),
+(45, "Zona de ciclistas.", 0),
+(45, "Zona peatonal.", 0),
+(45, "Zona residencial.", 0),
+
+-- Pregunta 46
+(46, "Multa.", 1),
+(46, "Advertencia verbal.", 0),
+(46, "Advertencia por escrito.", 0),
+(46, "Solo multa.", 0),
+
+-- Pregunta 47
+(47, "5 metros.", 1),
+(47, "10 metros.", 0),
+(47, "15 metros.", 0),
+(47, "20 metros.", 0),
+
+-- Pregunta 48
+(48, "Zona escolar.", 1),
+(48, "Zona de ciclistas.", 0),
+(48, "Zona peatonal.", 0),
+(48, "Zona residencial.", 0),
+
+-- Pregunta 49
+(49, "15 metros.", 1),
+(49, "10 metros.", 0),
+(49, "20 metros.", 0),
+(49, "25 metros.", 0),
+
+-- Pregunta 50
+(50, "Multa y posible arresto.", 1),
+(50, "Solo multa.", 0),
+(50, "Advertencia verbal.", 0),
+(50, "Advertencia por escrito.", 0),
+
+-- Pregunta 51
+(51, "5 metros.", 1),
+(51, "10 metros.", 0),
+(51, "15 metros.", 0),
+(51, "20 metros.", 0),
+
+-- Pregunta 52
+(52, "Zona peatonal.", 1),
+(52, "Zona de ciclistas.", 0),
+(52, "Zona escolar.", 0),
+(52, "Zona residencial.", 0),
+
+-- Pregunta 53
+(53, "Multa.", 1),
+(53, "Advertencia verbal.", 0),
+(53, "Advertencia por escrito.", 0),
+(53, "Solo multa.", 0),
+
+-- Pregunta 54
+(54, "5 metros.", 1),
+(54, "10 metros.", 0),
+(54, "15 metros.", 0),
+(54, "20 metros.", 0),
+
+-- Pregunta 55
+(55, "Zona escolar.", 1),
+(55, "Zona de ciclistas.", 0),
+(55, "Zona peatonal.", 0),
+(55, "Zona residencial.", 0),
+
+-- Pregunta 56
+(56, "Multa.", 1),
+(56, "Advertencia verbal.", 0),
+(56, "Advertencia por escrito.", 0),
+(56, "Solo multa.", 0),
+
+-- Pregunta 57
+(57, "5 metros.", 1),
+(57, "10 metros.", 0),
+(57, "15 metros.", 0),
+(57, "20 metros.", 0),
+
+-- Pregunta 58
+(58, "Zona escolar.", 1),
+(58, "Zona de ciclistas.", 0),
+(58, "Zona peatonal.", 0),
+(58, "Zona residencial.", 0),
+
+-- Pregunta 59
+(59, "15 metros.", 1),
+(59, "10 metros.", 0),
+(59, "20 metros.", 0),
+(59, "25 metros.", 0),
+
+-- Pregunta 60
+(60, "Multa y posible arresto.", 1),
+(60, "Solo multa.", 0),
+(60, "Advertencia verbal.", 0),
+(60, "Advertencia por escrito.", 0),
+
+-- Pregunta 61
+(61, "5 metros.", 1),
+(61, "10 metros.", 0),
+(61, "15 metros.", 0),
+(61, "20 metros.", 0),
+
+-- Pregunta 62
+(62, "Zona peatonal.", 1),
+(62, "Zona de ciclistas.", 0),
+(62, "Zona escolar.", 0),
+(62, "Zona residencial.", 0),
+
+-- Pregunta 63
+(63, "Multa.", 1),
+(63, "Advertencia verbal.", 0),
+(63, "Advertencia por escrito.", 0),
+(63, "Solo multa.", 0),
+
+-- Pregunta 64
+(64, "5 metros.", 1),
+(64, "10 metros.", 0),
+(64, "15 metros.", 0),
+(64, "20 metros.", 0),
+
+-- Pregunta 65
+(65, "Zona escolar.", 1),
+(65, "Zona de ciclistas.", 0),
+(65, "Zona peatonal.", 0),
+(65, "Zona residencial.", 0),
+
+-- Pregunta 66
+(66, "Multa.", 1),
+(66, "Advertencia verbal.", 0),
+(66, "Advertencia por escrito.", 0),
+(66, "Solo multa.", 0),
+
+-- Pregunta 67
+(67, "5 metros.", 1),
+(67, "10 metros.", 0),
+(67, "15 metros.", 0),
+(67, "20 metros.", 0),
+
+-- Pregunta 68
+(68, "Zona escolar.", 1),
+(68, "Zona de ciclistas.", 0),
+(68, "Zona peatonal.", 0),
+(68, "Zona residencial.", 0),
+
+-- Pregunta 69
+(69, "15 metros.", 1),
+(69, "10 metros.", 0),
+(69, "20 metros.", 0),
+(69, "25 metros.", 0),
+
+-- Pregunta 70
+(70, "Multa y posible arresto.", 1),
+(70, "Solo multa.", 0),
+(70, "Advertencia verbal.", 0),
+(70, "Advertencia por escrito.", 0),
+
+-- Pregunta 71
+(71, "5 metros.", 1),
+(71, "10 metros.", 0),
+(71, "15 metros.", 0),
+(71, "20 metros.", 0),
+
+-- Pregunta 72
+(72, "Zona peatonal.", 1),
+(72, "Zona de ciclistas.", 0),
+(72, "Zona escolar.", 0),
+(72, "Zona residencial.", 0),
+
+-- Pregunta 73
+(73, "Multa.", 1),
+(73, "Advertencia verbal.", 0),
+(73, "Advertencia por escrito.", 0),
+(73, "Solo multa.", 0),
+
+-- Pregunta 74
+(74, "5 metros.", 1),
+(74, "10 metros.", 0),
+(74, "15 metros.", 0),
+(74, "20 metros.", 0),
+
+-- Pregunta 75
+(75, "Zona escolar.", 1),
+(75, "Zona de ciclistas.", 0),
+(75, "Zona peatonal.", 0),
+(75, "Zona residencial.", 0),
+
+-- Pregunta 76
+(76, "Multa.", 1),
+(76, "Advertencia verbal.", 0),
+(76, "Advertencia por escrito.", 0),
+(76, "Solo multa.", 0),
+
+-- Pregunta 77
+(77, "5 metros.", 1),
+(77, "10 metros.", 0),
+(77, "15 metros.", 0),
+(77, "20 metros.", 0),
+
+-- Pregunta 78
+(78, "Zona escolar.", 1),
+(78, "Zona de ciclistas.", 0),
+(78, "Zona peatonal.", 0),
+(78, "Zona residencial.", 0),
+
+-- Pregunta 79
+(79, "15 metros.", 1),
+(79, "10 metros.", 0),
+(79, "20 metros.", 0),
+(79, "25 metros.", 0),
+
+-- Pregunta 80
+(80, "Multa y posible arresto.", 1),
+(80, "Solo multa.", 0),
+(80, "Advertencia verbal.", 0),
+(80, "Advertencia por escrito.", 0),
+
+-- Pregunta 81
+(81, "5 metros.", 1),
+(81, "10 metros.", 0),
+(81, "15 metros.", 0),
+(81, "20 metros.", 0),
+
+-- Pregunta 82
+(82, "Zona peatonal.", 1),
+(82, "Zona de ciclistas.", 0),
+(82, "Zona escolar.", 0),
+(82, "Zona residencial.", 0),
+
+-- Pregunta 83
+(83, "Multa.", 1),
+(83, "Advertencia verbal.", 0),
+(83, "Advertencia por escrito.", 0),
+(83, "Solo multa.", 0),
+
+-- Pregunta 84
+(84, "5 metros.", 1),
+(84, "10 metros.", 0),
+(84, "15 metros.", 0),
+(84, "20 metros.", 0),
+
+-- Pregunta 85
+(85, "Zona escolar.", 1),
+(85, "Zona de ciclistas.", 0),
+(85, "Zona peatonal.", 0),
+(85, "Zona residencial.", 0),
+
+-- Pregunta 86
+(86, "Multa.", 1),
+(86, "Advertencia verbal.", 0),
+(86, "Advertencia por escrito.", 0),
+(86, "Solo multa.", 0),
+
+-- Pregunta 87
+(87, "5 metros.", 1),
+(87, "10 metros.", 0),
+(87, "15 metros.", 0),
+(87, "20 metros.", 0),
+
+-- Pregunta 88
+(88, "Zona escolar.", 1),
+(88, "Zona de ciclistas.", 0),
+(88, "Zona peatonal.", 0),
+(88, "Zona residencial.", 0),
+
+-- Pregunta 89
+(89, "15 metros.", 1),
+(89, "10 metros.", 0),
+(89, "20 metros.", 0),
+(89, "25 metros.", 0),
+
+-- Pregunta 90
+(90, "Multa y posible arresto.", 1),
+(90, "Solo multa.", 0),
+(90, "Advertencia verbal.", 0),
+(90, "Advertencia por escrito.", 0),
+
+-- Pregunta 91
+(91, "5 metros.", 1),
+(91, "10 metros.", 0),
+(91, "15 metros.", 0),
+(91, "20 metros.", 0),
+
+-- Pregunta 92
+(92, "Zona peatonal.", 1),
+(92, "Zona de ciclistas.", 0),
+(92, "Zona escolar.", 0),
+(92, "Zona residencial.", 0),
+
+-- Pregunta 93
+(93, "Multa.", 1),
+(93, "Advertencia verbal.", 0),
+(93, "Advertencia por escrito.", 0),
+(93, "Solo multa.", 0),
+
+-- Pregunta 94
+(94, "5 metros.", 1),
+(94, "10 metros.", 0),
+(94, "15 metros.", 0),
+(94, "20 metros.", 0),
+
+-- Pregunta 95
+(95, "Zona escolar.", 1),
+(95, "Zona de ciclistas.", 0),
+(95, "Zona peatonal.", 0),
+(95, "Zona residencial.", 0),
+
+-- Pregunta 96
+(96, "Multa.", 1),
+(96, "Advertencia verbal.", 0),
+(96, "Advertencia por escrito.", 0),
+(96, "Solo multa.", 0),
+
+-- Pregunta 97
+(97, "5 metros.", 1),
+(97, "10 metros.", 0),
+(97, "15 metros.", 0),
+(97, "20 metros.", 0),
+
+-- Pregunta 98
+(98, "Zona escolar.", 1),
+(98, "Zona de ciclistas.", 0),
+(98, "Zona peatonal.", 0),
+(98, "Zona residencial.", 0),
+
+-- Pregunta 99
+(99, "15 metros.", 1),
+(99, "10 metros.", 0),
+(99, "20 metros.", 0),
+(99, "25 metros.", 0),
+
+-- Pregunta 100
+(100, "Multa y posible arresto.", 1),
+(100, "Solo multa.", 0),
+(100, "Advertencia verbal.", 0),
+(100, "Advertencia por escrito.", 0);
