@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Alumnos
+{% endblock %}
+
+{% block body %}
+<div>
+    <h1>Alumnos!</h1>
+    <p>Aquí puedes checar la informacion de los alumnos registrados.</p>
+</div>
+
+<div>
+    <form method="post">
+        <label for="matricula">Matricula:</label>
+        <input type="text" name="matricula" pattern=".{9}" title="La matricula debe de ser de 9 dijitos!">
+        <input type="submit" value="Buscar">
+    </form>
+</div>
+
+<div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th> Matricula </th>
+                <th> Nombre </th>
+                <th> Apellido Paterno </th>
+                <th> Apellido Materno </th>
+                <th> E-Mail </th>
+                <th> Telefono </th>
+                <th> Calificación Final </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if not registros %}
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <strong>Error!</strong> No se encontro ningun alumno!
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                </div>
+            {% else %}
+                {% for registro in registros %}
+                    <tr>
+                        <td>{{registro[0]}}</td>
+                        <td>{{registro[1]}}</td>
+                        <td>{{registro[2]}}</td>
+                        <td>{{registro[3]}}</td>
+                        <td>{{registro[4]}}</td>
+                        <td>{{registro[5]}}</td>
+                        <td>{{registro[6]}}</td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
