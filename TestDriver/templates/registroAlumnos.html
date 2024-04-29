@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+Registro Alumnos
+{% endblock %}
+
+{% block body %}
+    {% if context.mensaje|length > 1 %}
+        <div class="alert alert-{{context.type}} alert-dismissible fade show">
+            <strong>Success!</strong>{{context.mensaje}}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+    {% endif %}
+
+    <form method="post">
+        <label for="matricula">Matricula:</label>
+        <input type="text" name="matricula" pattern=".{9}" title="La matricula debe de ser de 9 caracteres!"
+            required><br><br>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required><br><br>
+        <label for="paterno">Apellido Paterno:</label>
+        <input type="text" name="paterno" required><br><br>
+        <label for="materno">Apellido Materno:</label>
+        <input type="text" name="materno" required><br><br>
+        <label for="email">E-Mail:</label>
+        <input type="email" name="email" required><br><br>
+        <label for="telefono">Telefono:</label>
+        <input type="tel" name="telefono" pattern="[0-9]+" title="El teléfono debe contener solo números"
+            required><br><br>
+        <input type="submit" value="Agregar">
+    </form>
+{% endblock %}
