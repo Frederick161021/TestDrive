@@ -239,6 +239,10 @@ def examen():
             cursor.execute('CALL registrarExamenHistorial(%s, %s, %s, %s)', (matricula, fecha, tipo, calificacion))
             connection.commit()
 
+            if tipo == "Final":
+                cursor.execute('CALL subirCalificacionFinal(%s, %s)', (matricula, calificacion))
+                connection.commit()
+
             cursor.close()
             connection.close()
             return redirect(url_for('resultado', **resultados))
