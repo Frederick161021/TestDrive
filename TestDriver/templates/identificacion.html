@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Examen Prueba
+{% endblock %}
+
+{% block body %}
+<div>
+    <h1>¿Quién quiere presentar el Examen?</h1><br><br>
+    <p>Digita tu matricula para presentar tu examen.</p><br>
+</div>
+<div>
+    {% if mensaje != "" %}
+        <div class="alert alert-danger alert-dismissible fade show">
+            <strong>Permiso denegado!</strong> {{mensaje}}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+    {% endif %}
+</div>
+<div>
+    <form method="POST">
+        <label for="matricula">Matricula:</label>
+        <input type="text" name="matricula" pattern=".{9}" title="Matricula debe teber 9 caracteres!" required>
+        <input type="submit" value="Presentar Examen">
+    </form><br>
+</div>
+{% endblock %}

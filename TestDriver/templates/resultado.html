@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ Resultados
+{% endblock %}
+
+{% block body %}
+<div>
+    <h1>Resultados del Examen</h1>
+    <img src={{resultados.imagen}} alt="imagenResultado">
+    <h3>{{ resultados.mensaje }}</h3>
+</div>
+{% endblock %}
