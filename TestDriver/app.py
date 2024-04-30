@@ -261,5 +261,23 @@ def resultado():
     return render_template('resultado.html', resultados = resultados)
 
 
+
+@app.route('/historial', methods = ['POST', 'GET'])
+def historial():
+    if request.method == 'GET':
+        registros = []
+        db = Database()
+        connection = db.get_connection()
+        cursor = connection.cursor()
+        cursor.execute('CALL consultarHistorial()')
+
+        registros = cursor.fetchall()
+
+        cursor.close()
+        connection.close()
+
+        return render_template('historial.html', registros = registros)
+
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

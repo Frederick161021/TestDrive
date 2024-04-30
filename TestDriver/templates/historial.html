@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Historial Examenes Alumnos
+{% endblock %}
+
+{% block body %}
+    <div>
+        <h1>Historial de los Examenes Presentados por Alumnos</h1>
+        <p>Aquí podras obserbar la infomacion de los examenes presentados</p>
+    </div>
+    <div>
+        <table border="1">
+            <tr>
+                <th>Matricula Alumno</th>
+                <th>Nombre Copleto</th>
+                <th>Fecha de Realización</th>
+                <th>Tipo</th>
+                <th>Calificacion</th>
+            </tr>
+
+            {% for registro in registros %}
+                <tr>
+                    <td>{{registro[0]}}</td>
+                    <td>{{registro[1]}}</td>
+                    <td>{{registro[2]}}</td>
+                    <td>{{registro[3]}}</td>
+                    <td>{{registro[4]}}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+{% endblock %}
