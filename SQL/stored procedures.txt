@@ -1,0 +1,103 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `agregarEstudiante`(
+	`p_matricula` VARCHAR(9),
+	`p_nombre` VARCHAR(50),
+	`p_apellidoPaterno` VARCHAR(50),
+	`p_apellidoMaterno` VARCHAR(50),
+	`p_email` VARCHAR(50),
+	`p_telefono` BIGINT)
+BEGIN
+	INSERT INTO `estudiante` (matricula, nombre, apellidoPaterno, apellidoMaterno, email, telefono)
+	VALUES (p_matricula, p_nombre, p_apellidoPaterno, p_apellidoMaterno, p_email, p_telefono);
+END;
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consultarEstudiante`()
+BEGIN
+	SELECT * FROM estudiante;
+END;
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consultarPorMatriculaEstudiante`(
+	p_matricula VARCHAR(9)
+)
+BEGIN
+	SELECT * FROM estudiante WHERE  matricula = p_matricula;
+END;
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `contarPruebaManejo`(
+	p_matricula VARCHAR(9)
+)
+BEGIN
+	SELECT COUNT(*) FROM historialestudiante WHERE matricula = p_matricula AND tipo = 'Test';
+END;
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `contarExamenes`(
+	p_matricula VARCHAR(9)
+)
+BEGIN
+	SELECT COUNT(*) FROM historialestudiante WHERE matricula = p_matricula AND tipo = 'Final';
+END;
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `obtenerDatosPregunta`(
+	p_preguntaId int
+)
+BEGIN
+	SELECT p.reactivo, i.ruta, r.opcion, r.tipo
+	FROM preguntas p
+	INNER JOIN respuestas r ON p.preguntaId = r.preguntaId
+	INNER JOIN imagenes i ON p.imagenId = i.imagenId
+	WHERE p.preguntaId = p_preguntaId;
+END;
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `registrarExamenHistorial`(
+	p_matricula VARCHAR(9),
+	p_fechaRealizacion DATETIME,
+	p_tipo VARCHAR(50),
+	p_calificacion DOUBLE
+	
+)
+BEGIN
+	INSERT INTO historialestudiante(matricula, fechaRealizacion, tipo, calificacion)
+	VALUES(p_matricula, p_fechaRealizacion, p_tipo, p_calificacion);
+END;
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `consultarHistorial`()
+BEGIN
+	SELECT 
+    h.matricula, 
+		CONCAT(e.nombre, ' ', e.apellidoPaterno, ' ', e.apellidoMaterno) as nombreCompleto,
+    h.fechaRealizacion, 
+    h.tipo, 
+    h.calificacion
+FROM historialestudiante h
+INNER JOIN estudiante e ON h.matricula = e.matricula;
+END;
