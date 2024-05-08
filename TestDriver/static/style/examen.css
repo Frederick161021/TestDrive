@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f8ff; 
-    padding: 20px;
+    padding: 10px;
 }
 
 h1 {
@@ -15,29 +15,29 @@ p {
 
 
 form {
-    margin-bottom: 20px;
+    margin-bottom: 1s0px;
     background-color: #fff;
-    padding: 20px;
+    padding: 30px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 label {
-    display: block;
-    margin-bottom: 10px;
+    display: flexbox;
+    margin-bottom: 5px;
     color: #333;
 }
 
 input[type="radio"] {
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 #submitBtn {
-    padding: 10px 20px;
+    padding: 10px 10px;
     background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 2px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
