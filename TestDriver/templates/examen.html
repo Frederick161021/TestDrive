@@ -11,55 +11,61 @@ Examen
 {% block body %}
     {% if not registros %}
     {% else %}
+        {% if context['index'] != context['numPreguntas'] %}
         <div>
-        <label>{{registros[0][0]}}</label>
-        {% if registros[0][1] != '-' %}
-            <img src={{registros[0][1]}} alt="imagenApoyo">
-        {% endif %}
+            <label>{{registros[0][0]}}</label>
+            {% if registros[0][1] != '-' %}
+                <img src={{registros[0][1]}} alt="imagenApoyo">
+            {% endif %}
+            <form method="POST">
+                <input type="radio" name="opcion" value={{registros[0][3]}}|{{registros[0][4]}}>
+                <label for="opcion1">{{registros[0][2]}}</label><br>
+                <input type="radio" name="opcion" value={{registros[1][3]}}|{{registros[1][4]}}>
+                <label for="opcion2">{{registros[1][2]}}</label><br>
+                <input type="radio" name="opcion" value={{registros[2][3]}}|{{registros[2][4]}}>
+                <label for="opcion3">{{registros[2][2]}}</label><br>
+                <input type="radio" name="opcion" value={{registros[3][3]}}|{{registros[3][4]}}>
+                <label for="opcion4">{{registros[3][2]}}</label><br>
+                <input type="submit" id="submitBtn" value="Siguiente">
+            </form>
+        </div>
+    
+        <div>
+            <h1>Temporizador</h1>
+            <p id="timer">Tiempo restante: <span id="countdown"></span></p>
+    
+            <script>
+                function startTimer(duration, display) {
+                    var timer = duration, minutes, seconds;
+                    var intervalId = setInterval(function () {
+                        minutes = parseInt(timer / 60, 10);
+                        seconds = parseInt(timer % 60, 10);
+            
+                        minutes = minutes < 10 ? "0" + minutes : minutes;
+                        seconds = seconds < 10 ? "0" + seconds : seconds;
+            
+                        display.textContent = minutes + ":" + seconds;
+            
+                        if (--timer < 0) {
+                            clearInterval(intervalId); // Detener el temporizador cuando llega a cero
+                            // Simular clic en el botón de envío del formulario
+                            document.getElementById("submitBtn").click();
+                        }
+                    }, 1000);
+                }
+            
+                window.onload = function () {
+                    var fiveMinutes = 60 * 1,
+                        display = document.querySelector('#countdown');
+                    startTimer(fiveMinutes, display);
+                };
+            </script>
+            
+        </div>
+        {% else %}
         <form method="POST">
-            <input type="radio" name="opcion" value={{registros[0][3]}}>
-            <label for="opcion1">{{registros[0][2]}}</label><br>
-            <input type="radio" name="opcion" value={{registros[1][3]}}>
-            <label for="opcion2">{{registros[1][2]}}</label><br>
-            <input type="radio" name="opcion" value={{registros[2][3]}}>
-            <label for="opcion3">{{registros[2][2]}}</label><br>
-            <input type="radio" name="opcion" value={{registros[3][3]}}>
-            <label for="opcion4">{{registros[3][2]}}</label><br>
-            <input type="submit" id="submitBtn" value="Siguiente">
+            <input type="submit" id="submitBtn" value="Terminar">
         </form>
-    </div>
-
-    <div>
-        <h1>Temporizador</h1>
-        <p id="timer">Tiempo restante: <span id="countdown"></span></p>
-
-        <script>
-            function startTimer(duration, display) {
-                var timer = duration, minutes, seconds;
-                var intervalId = setInterval(function () {
-                    minutes = parseInt(timer / 60, 10);
-                    seconds = parseInt(timer % 60, 10);
-        
-                    minutes = minutes < 10 ? "0" + minutes : minutes;
-                    seconds = seconds < 10 ? "0" + seconds : seconds;
-        
-                    display.textContent = minutes + ":" + seconds;
-        
-                    if (--timer < 0) {
-                        clearInterval(intervalId); // Detener el temporizador cuando llega a cero
-                        // Simular clic en el botón de envío del formulario
-                        document.getElementById("submitBtn").click();
-                    }
-                }, 1000);
-            }
-        
-            window.onload = function () {
-                var fiveMinutes = 60 * 1,
-                    display = document.querySelector('#countdown');
-                startTimer(fiveMinutes, display);
-            };
-        </script>
-        
-    </div>
+        {% endif %}
     {% endif %}
 {% endblock %}

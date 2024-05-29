@@ -13,6 +13,7 @@ app.secret_key = 'tu_clave_secreta_aqui'
 def index():
     session['index'] = 0
     session['puntos'] = 0.0
+    session['respuestasId'] = [0] * 40
     return render_template('index.html')
 
 @app.route('/registroAlumnos', methods=['POST', 'GET'])
@@ -152,30 +153,35 @@ def examen():
     index = session.get('index', 0)  # Obtener el índice de la sesión, con un valor predeterminado de 0
     numPreguntas = int(request.args.get('numPreguntas'))
     puntos = session.get('puntos', 0.0)   # Obtener los puntos de la sesión, con un valor predeterminado de 0
-
+    respuestasId = session.get('respuestasId')
     registros = []
 
     if request.method == 'GET':
-        db = Database()
-        connection = db.get_connection()
-        cursor = connection.cursor()
-        
-        preguntaId = int(preguntasId[index])
-        
-        cursor.execute('CALL obtenerDatosPregunta(%s)', [preguntaId])
-        registros = cursor.fetchall()
+        if(index <= numPreguntas-1):
+            db = Database()
+            connection = db.get_connection()
+            cursor = connection.cursor()
+            
+            preguntaId = int(preguntasId[index])
+            
+            cursor.execute('CALL obtenerDatosPregunta(%s)', [preguntaId])
+            registros = cursor.fetchall()
+            print(registros)
+            cursor.close()
+            connection.close()
 
-        cursor.close()
-        connection.close()
-
-        context = {'matricula': matricula, 'preguntasId': preguntasId, 'index': index+1, 'numPreguntas': numPreguntas, 'puntos': puntos}
+        context = {'matricula': matricula, 'preguntasId': preguntasId, 'index': index+1, 'numPreguntas': numPreguntas, 'puntos': puntos, 'respuestasId': respuestasId}
 
         return render_template('examen.html', registros = registros, context = context)
 
 
     if request.method == 'POST':
         try:
-            opcion_seleccionada = int(request.form['opcion'])
+            respuestaValor = request.form['opcion']
+            partes = respuestaValor.split('|')
+            opcion_seleccionada = int(partes[0])
+            respuestasId[index] = int(partes[1])
+            print(respuestasId)
             print("opcion seleccionada: %s" % opcion_seleccionada)
             if opcion_seleccionada == 1 :
                 print(numPreguntas)
@@ -195,22 +201,24 @@ def examen():
         index += 1  # Incrementar el índice
         session['index'] = index  # Actualizar el índice en la sesión
 
-        db = Database()
-        connection = db.get_connection()
-        cursor = connection.cursor()
-        
-        preguntaId = int(preguntasId[index])
-        
-        cursor.execute('CALL obtenerDatosPregunta(%s)', [preguntaId])
-        registros = cursor.fetchall()
 
-        context = {'matricula': matricula, 'preguntasId': preguntasId, 'index': index, 'numPreguntas': numPreguntas, 'puntos': puntos}
-        
-        
-        cursor.close()
-        connection.close()
+        if(index <= numPreguntas-1):
+            db = Database()
+            connection = db.get_connection()
+            cursor = connection.cursor()
+            
+            preguntaId = int(preguntasId[index])
+            
+            cursor.execute('CALL obtenerDatosPregunta(%s)', [preguntaId])
+            registros = cursor.fetchall()
 
-        if index ==  len(preguntasId)-1:
+            context = {'matricula': matricula, 'preguntasId': preguntasId, 'index': index, 'numPreguntas': numPreguntas, 'puntos': puntos, 'respuestasId': respuestasId}
+            
+            
+            cursor.close()
+            connection.close()
+
+        if index ==  numPreguntas:
             fecha = datetime.date.today()
             tipo = ""
             resultados ={'mensaje': "", 'imagen': ""}
@@ -238,13 +246,46 @@ def examen():
 
             cursor.execute('CALL registrarExamenHistorial(%s, %s, %s, %s)', (matricula, fecha, tipo, calificacion))
             connection.commit()
+            cursor.close()
+            connection.close()
+
+            db = Database()
+            connection = db.get_connection()
+            cursor = connection.cursor()
+            
+            cursor.execute('CALL existeRegistroPrevioExamen(%s)', [matricula])
+            resgistros = cursor.fetchall()
+
+            cursor.close()
+            connection.close()
+            
+            print(resgistros[0][0])
+            if(resgistros[0][0] != 0):
+                db = Database()
+                connection = db.get_connection()
+                cursor = connection.cursor()
+                cursor.execute('CALL eliminarRegistroPrevioExamen(%s)', [matricula])
+                connection.commit()
+                cursor.close()
+                connection.close()  
+
+            for i in range(0, numPreguntas):
+                print(i)
+                db = Database()
+                connection = db.get_connection()
+                cursor = connection.cursor()
+                cursor.execute('CALL crearRegistroExamen(%s, %s, %s)', (matricula, preguntasId[i], respuestasId[i]))
+                connection.commit()
+                connection.commit()
+                cursor.close()
+                connection.close()  
 
             if tipo == "Final":
                 cursor.execute('CALL subirCalificacionFinal(%s, %s)', (matricula, calificacion))
                 connection.commit()
 
-            cursor.close()
-            connection.close()
+                cursor.close()
+                connection.close()
             return redirect(url_for('resultado', **resultados))
         else:
             return render_template('examen.html', registros = registros, context = context)
