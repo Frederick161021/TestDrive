@@ -281,6 +281,9 @@ def examen():
                 connection.close()  
 
             if tipo == "Final":
+                db = Database()
+                connection = db.get_connection()
+                cursor = connection.cursor()
                 cursor.execute('CALL subirCalificacionFinal(%s, %s)', (matricula, calificacion))
                 connection.commit()
 
@@ -323,6 +326,26 @@ def historial():
 
         return render_template('historial.html', registros = registros)
 
+
+@app.route('/ultimoExamenRegistro', methods=['GET', 'POST'])
+def ultimoExamenRegistro():
+    registros = None 
+
+    if request.method == 'POST':
+        matricula = request.form['matricula']
+        db = Database()
+        connection = db.get_connection()
+        cursor = connection.cursor()
+        cursor.execute('CALL consultarRegistroExamen(%s)', [matricula])
+
+        registros = cursor.fetchall()
+        print(registros)
+
+        cursor.close()
+        connection.close()
+        return render_template('registroExamen.html', registros = registros)
+    else:
+        return render_template('registroExamen.html', registros = registros)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

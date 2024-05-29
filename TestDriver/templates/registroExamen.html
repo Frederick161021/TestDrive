@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Registro Examen
+{% endblock %}
+
+{% block body %}
+<form method="POST">
+    <label for="matricula">Matricula: </label>
+    <input name="matricula" type="text"><br>
+    <input type="submit" value="Buscar">
+</form>
+{% if not registros %}
+<h2>No hay registros que mostrar!!</h2>
+{% else %}
+<table>
+    <tr>
+        <th>N°</th>
+        <th>PREGUNTA</th>
+        <th>IMAGEN</th>
+        <th>RESPUESTA</th>
+        <th>TIPO</th>
+    </tr>
+    {% for registro in registros %}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{registro[0]}}</td>
+        {% if registro[1] == '-' %}
+        <td>No hay imagen</td>
+        {% else %}
+        <td><img src="{{registro[1]}}" alt="imagenPregunta" height="50px" width="50px"></td>
+        {% endif %}
+        <td>{{registro[2]}}</td>
+        {% if registro[3] == 1 %}
+        <td bgcolor="green">Correcto</td>
+        {% else %}
+        <td bgcolor="red">Incorrecto</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table><br>
+{% endif %}
+{% endblock %}
